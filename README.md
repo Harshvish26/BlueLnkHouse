@@ -100,7 +100,8 @@ This project fulfills all core requirements of the Blue Ink House SDE Intern Ass
 
 *Developed by 
 Harsh Vishwakarma
-https://github.com/Harshvish26/Blue-Lnk-House
+
+GitHub : https://github.com/Harshvish26/Blue-Lnk-House
 
 Youtube Link : https://www.youtube.com/watch?v=i07al0v3U0k
 
