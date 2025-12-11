@@ -30,8 +30,8 @@ You must have Node.js and npm installed on your system.
 
 1.  **Clone the repository:**
     ```bash
-    git clone [https://github.com/yourusername/blue-ink-house-platform.git](https://github.com/yourusername/blue-ink-house-platform.git)
-    cd blue-ink-house-platform
+    git clone [(https://github.com/Harshvish26/Blue-Lnk-House)]
+    cd Blue-Lnk-House
     ```
 
 2.  **Install dependencies:**
