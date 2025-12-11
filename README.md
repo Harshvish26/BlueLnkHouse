@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 📘 Blue Ink House - Author & Book Management Platform
 
 This is a lightweight Author and Book Management Platform developed as an assignment for the SDE Intern role at Blue Ink House.
@@ -104,3 +105,6 @@ https://github.com/Harshvish26/Blue-Lnk-House
 
 
 
+=======
+# BlueLnkHouse
+>>>>>>> 6277ca60567ebffccc72828aa198380c5d0c1f09
