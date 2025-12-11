@@ -1,0 +1,39 @@
+<%- include('partials/header') %>
+<%- include('partials/navbar') %>
+
+<main class="card">
+  <h2>Create Author (User)</h2>
+
+  <form action="/authors" method="POST" class="form">
+    <label>
+      Name
+      <input type="text" name="name" required />
+    </label>
+
+    <label>
+      Email
+      <input type="email" name="email" required />
+    </label>
+
+    <label>
+      Short Bio
+      <textarea name="bio" rows="4"></textarea>
+    </label>
+
+    <label>
+      Profile Image URL
+      <input type="url" name="profile_image_url" placeholder="https://..." />
+    </label>
+
+    <div class="form-actions">
+      <button class="btn" type="submit">Create Account</button>
+      <a class="btn outline" href="/">Cancel</a>
+    </div>
+  </form>
+
+  <p class="muted">After creation your status will be <strong>pending</strong> until admin approves.</p>
+</main>
+
+</div>
+</body>
+</html>

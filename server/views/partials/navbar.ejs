@@ -1,0 +1,32 @@
+<nav class="nav">
+    <div class="brand"><a href="/">Author & Book Management</a></div>
+
+    <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/books/list">Books</a></li> 
+    </ul>
+
+    <ul class="nav-links" style="gap:8px;">
+
+        <% 
+            const isAdmin = session && session.admin;
+            const isAuthor = session && session.author;
+        %>
+        
+        <% if (isAuthor && !isAdmin) { %>
+            <li><a href="/dashboard">Hi, <b><%= session.author.name %></b></a></li>
+            <li><a href="/books/add">Add Book</a></li> 
+            <li><a href="/author/logout">Logout</a></li>
+        
+        <% } else if (isAdmin) { %>
+            <li><a href="/authors/list">Admin Panel</a></li>
+            <li><a href="/admin/logout">Admin Logout</a></li>
+        
+        <% } else { %>
+            <li><a href="/author/register">Create Author</a></li>
+            <li><a href="/author/login">Author Login</a></li>
+            <li><a href="/admin/login">Admin Login</a></li>
+        <% } %>
+
+    </ul>
+</nav>

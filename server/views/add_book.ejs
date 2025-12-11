@@ -1,0 +1,35 @@
+<%- include('partials/header') %>
+<%- include('partials/navbar') %>
+
+<main class="card">
+  <h2>Add Book</h2>
+
+  <form action="/books" method="POST" class="form">
+    <label>Title
+      <input type="text" name="title" required />
+    </label>
+
+    <label>Description
+      <textarea name="description" rows="5"></textarea>
+    </label>
+
+    <label>Genre
+      <input type="text" name="genre" />
+    </label>
+
+    <label>Cover Image URL
+      <input type="url" name="cover_image_url" />
+    </label>
+
+    <input type="hidden" name="author_id" value="<%= author_id || '' %>" />
+
+    <div class="form-actions">
+      <button class="btn" type="submit">Add Book</button>
+      <a class="btn outline" href="/books/list">Cancel</a>
+    </div>
+  </form>
+</main>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<%- include('partials/header') %>
+<%- include('partials/navbar') %>
+
+<main class="card">
+  <h2>Your Dashboard</h2>
+
+  <% if (!author) { %>
+    <p>No author loaded. <a href="/authors/add">Create author</a></p>
+  <% } else { %>
+    <div class="grid">
+      <div class="panel">
+        <% if (author.profile_image_url) { %>
+          <img class="avatar large" src="<%= author.profile_image_url %>"/>
+        <% } else { %>
+          <div class="avatar large placeholder"><%= (author.name||'').charAt(0).toUpperCase() %></div>
+        <% } %>
+        <h3><%= author.name %></h3>
+        <p class="muted"><%= author.email %></p>
+        <p><strong>Status:</strong> <span class="<%= author.status==='approved' ? 'status-approved' : 'status-pending' %>"><%= author.status %></span></p>
+      </div>
+
+      <div class="panel">
+        <h3>Actions</h3>
+        <% if (author.status === 'approved') { %>
+          <a class="btn" href="/books/add?author_id=<%= author._id %>">Add Book</a>
+        <% } else { %>
+          <p class="muted">You cannot add a book until admin approves your account.</p>
+        <% } %>
+
+        <a class="btn outline" href="/books/list?author=<%= author._id %>">My Books</a>
+      </div>
+    </div>
+  <% } %>
+
+</main>
+
+</div>
+</body>
+</html>

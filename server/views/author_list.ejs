@@ -1,0 +1,59 @@
+<%- include('partials/header') %>
+<%- include('partials/navbar') %>
+
+<main class="card">
+  <h2>Authors (Admin)</h2>
+
+  <% if (authors && authors.length === 0) { %>
+    <p>No authors yet. <a href="/authors/add">Add one</a>.</p>
+  <% } else { %>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Status</th>
+          <th>Books</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+      <% authors.forEach(author => { %>
+        <tr>
+          <td>
+            <div class="author-cell">
+              <% if (author.profile_image_url) { %>
+                <img src="<%= author.profile_image_url %>" class="avatar" />
+              <% } else { %>
+                <div class="avatar placeholder"><%= (author.name||'').charAt(0).toUpperCase() %></div>
+              <% } %>
+              <div>
+                <strong><%= author.name %></strong><br/>
+                <span class="muted"><%= author.bio ? (author.bio.length>80 ? author.bio.slice(0,80)+'...' : author.bio) : '' %></span>
+              </div>
+            </div>
+          </td>
+          <td><%= author.email %></td>
+          <td class="<%= author.status === 'approved' ? 'status-approved' : 'status-pending' %>"><%= author.status %></td>
+          <td>
+            <% /* count books - if you want server-side: include count on author object; otherwise show link */ %>
+            <a href="/authors/<%= author._id %>/books">View books</a>
+          </td>
+          <td>
+            <% if (author.status === 'pending') { %>
+              <a class="btn small" href="/authors/<%= author._id %>/approve">Approve</a>
+            <% } else { %>
+              <span class="muted">Approved</span>
+            <% } %>
+          </td>
+        </tr>
+      <% }) %>
+      </tbody>
+    </table>
+  <% } %>
+
+</main>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<%- include("partials/header") %>
+<%- include("partials/navbar") %>
+
+<div class="container mt-4">
+  <h2>Books by Author</h2>
+  <hr>
+
+  <% if (books.length === 0) { %>
+    <p>No books found for this author.</p>
+  <% } else { %>
+
+    <div class="books-grid">
+
+      <% books.forEach(book => { %>
+        <div class="book-card">
+
+          <% if (book.cover_image_url) { %>
+            <img src="<%= book.cover_image_url %>" class="cover" alt="Book Cover" />
+          <% } else { %>
+            <div class="cover placeholder">No Image</div>
+          <% } %>
+
+          <h3><%= book.title %></h3>
+
+          <p class="muted">Genre: <%= book.genre || '—' %></p>
+
+          <p class="desc">
+            <%= book.description ? book.description : 'No description available' %>
+          </p>
+
+        </div>
+      <% }) %>
+
+    </div>
+
+  <% } %>
+
+  <div class="action-footer-gap">
+    <a href="/authors/list" class="btn btn-secondary">Back to Admin Panel</a>
+</div>
+</div>
+
+<%- include("partials/footer") %>
+</body>
+</html>

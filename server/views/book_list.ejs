@@ -1,0 +1,71 @@
+<%- include('partials/header') %>
+<%- include('partials/navbar') %>
+
+<main class="card">
+  <h2>Books</h2>
+
+  <form action="/books/search" method="GET" class="search-form">
+    <input 
+      type="text" 
+      name="q" 
+      placeholder="Search by title, genre or author name" 
+      value="<%= typeof q !== 'undefined' ? q : '' %>"
+    />
+    <button class="btn small" type="submit">Search</button>
+    <a class="btn outline" href="/books/list">Reset</a>
+  </form>
+
+  <% if (!books || books.length === 0) { %>
+    <p>No books found.</p>
+  <% } else { %>
+    <div class="books-grid">
+
+      <% books.forEach(book => { %>
+        <div class="book-card">
+
+          <% if (book.cover_image_url) { %>
+            <img src="<%= book.cover_image_url %>" class="cover" alt="Book Cover" />
+          <% } else { %>
+            <div class="cover placeholder">No Image</div>
+          <% } %>
+
+          <h3><%= book.title %></h3>
+
+          <p class="muted">Genre: <%= book.genre || '—' %></p>
+
+          <p class="desc">
+            <%= book.description 
+                ? (book.description.length > 150 
+                    ? book.description.slice(0,150) + '...' 
+                    : book.description) 
+                : 'No description' 
+            %>
+          </p>
+
+          <div class="meta">
+            <small>
+              Author:
+              <% if (book.author_id) { %>
+                <strong><%= book.author_id.name %></strong>
+              <% } else { %>
+                <em>Unknown</em>
+              <% } %>
+            </small>
+
+            <a class="btn tiny" 
+               href="/books/list?author=<%= book.author_id ? book.author_id._id : '' %>">
+              More by author
+            </a>
+          </div>
+
+        </div>
+      <% }) %>
+
+    </div>
+  <% } %>
+
+</main>
+
+</div>
+</body>
+</html>
