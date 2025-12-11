@@ -49,8 +49,8 @@ You must have Node.js and npm installed on your system.
 
 4.  **Run the application:**
     ```bash
-    # Runs the server using nodemon (if installed) or node
-    npm run dev 
+    # Runs the server using nodemon or node
+    nodemon 
     ```
     The application will be available at `http://localhost:5000`.
 
@@ -102,5 +102,5 @@ This project fulfills all core requirements of the Blue Ink House SDE Intern Ass
 Harsh Vishwakarma
 https://github.com/Harshvish26/Blue-Lnk-House
 
-
+Youtube Link : https://www.youtube.com/watch?v=i07al0v3U0k
 
